@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donates</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <style>
+    /* Estilo geral */
+/* included CSS file:  https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 36px;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #29b673;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1a7c4f;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilo da página */
+
+header {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+section {
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  width: 300px;
+  text-align: center;
+}
+
+input[type="text"] {
+
+  padding: 12px 24px;
+}
+/*quebra linha do valor */
+.valor {
+  font-size: 1.4em;
+  display: block;
+  margin-top: 5px;
+}
+
+/* Animações */
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.pulse {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+  </style>
+  <body>
+    <header>
+      <h1 class="animated fadeInDown">Donates Disponíveis</h1>
+      <form>
+        <input type="text" id="searchInput" placeholder="Digite o nome do donate...">
+        <button type="button" id="searchButton">Buscar</button>
+      </form>
+    </header>
+
+    <main>
+      
+      
+  <section class="animated fadeIn" id="">
+    <img src="https://i.imgur.com/IRl4dgC.png" alt="mount">
+     </a>
+    <h2>Mount 1</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/db1otP5.png" alt="mount">
+    <h2>Mount 2</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/XXJ7BeF.png" alt="mount">
+    <h2>Mount 3</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/GnmRJWe.png" alt="mount">
+    <h2>Mount 4</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/vGREFAP.png" alt="mount">
+    <h2>Mount 5</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/03Gma3l.png" alt="mount">
+    <h2>Mount 6</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/1SkRPcm.png" alt="mount">
+    <h2>Mount 7</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/ONZC7lu.png" alt="mount">
+    <h2>Mount 8</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/eW47YkB.png" alt="mount">
+    <h2>Mount 9</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/INxYpXB.png" alt="mount">
+    <h2>Mount 10</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/0OS4Els.png" alt="mount">
+    <h2>Mount 11</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/WYrsQIS.png" alt="mount">
+    <h2>Mount 12</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/KPva2An.png" alt="mount">
+    <h2>Mount 13</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/iWzW796.png" alt="mount">
+    <h2>Mount 14</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/qTf1fJd.png" alt="mount">
+    <h2>Mount 15</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/nUpLppZ.png" alt="mount">
+    <h2>Mount 16</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/RBWdpNZ.png" alt="mount">
+    <h2>Mount 17</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/M4wSIyr.png" alt="mount">
+    <h2>Mount 18</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/DhdsPIS.png" alt="mount">
+    <h2>Mount 19</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/vE1Q5Jx.png" alt="mount">
+    <h2>Mount 20</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  <section class="animated fadeIn">
+    <img src="https://i.imgur.com/NdQ7dDc.png">
+    <h2>Mount 21</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/hOtpjEV.png">
+    <h2>Mount 22</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/Po9ivJa.png">
+    <h2>Mount 23</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/aFxCJJl.png">
+    <h2>Mount 24</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+    </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/JHo4tva.png">
+    <h2>Mount 25</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+    </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/wlfNI9w.png">
+    <h2>Mount 26</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+    </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/dxeiLpe.png">
+    <h2>Mount 27</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/E2LU9uZ.png">
+    <h2>Mount 28</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/pNa8mnB.png">
+    <h2>Mount 29</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/HEHD2uE.png">
+    <h2>Mount 30</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/QyKukzE.png">
+    <h2>Mount 31</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/GtVZscn.png">
+    <h2>Mount 32</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/JPt180w.png">
+    <h2>Mount 33</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/dg57A7C.png">
+    <h2>Mount 34</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/BUH5l19.png">
+    <h2>Mount 35</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/G2JOhvf.png">
+    <h2>Mount 36</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/PXh82C5.png">
+    <h2>Mount 37</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/v69ECmc.png">
+    <h2>Mount 38</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+  </section>
+    <section class="animated fadeIn">
+    <img src="https://i.imgur.com/BfPZgJP.png">
+    <h2>Mount 39</h2>
+    <span class="valor">R$ 50,00</span>
+    <button class="pulse">Comprar</button>
+  </section>
+</main>
+
+
+    <script>
+      
+    const searchInput = document.getElementById("searchInput");
+    const searchButton = document.getElementById("searchButton");
+    const sections = document.querySelectorAll("section");
+
+    searchInput.addEventListener("input", () => {
+      const searchValue = searchInput.value.toLowerCase();
+
+      sections.forEach(section => {
+        const sectionName = section.querySelector("h2").textContent.toLowerCase();
+
+        if (sectionName.includes(searchValue)) {
+          section.style.display = "block";
+        } else {
+          section.style.display = "none";
+        }
+      });
+    });
+    searchInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+  }
+});
+
+const buyButtons = document.querySelectorAll('button');
+
+buyButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const itemName = button.parentElement.querySelector('h2').textContent.trim();
+    const url = `https://api.whatsapp.com/send?phone=55%20(67)%209849-5909&text=%20%20Gostaria%20de%20comprar%20esse%20donate:%20${itemName}`;
+    window.open(url, '_blank');
+  });
+});
+
+
+    </script>
+  </body>
+</html>
