@@ -6,447 +6,541 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donates</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   </head>
   <style>
     /* Estilo geral */
 /* included CSS file:  https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css */
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f7f7f7;
-  text-align: center;
+ body {
+        position: relative;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+        text-align: center;
+    }
+
+    #cart-overlay {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 10px;
+        display: none; /* Inicialmente, esconde o carrinho */
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    #cart-button {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #29b673;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    #cart-button:hover {
+        background-color: #1a7c4f;
+    }
+
+    #cart-icon {
+        margin-right: 5px;
+    }
+    ul li{
+       list-style-type: none; 
+    }
+
+
+
+/* Adicione este CSS para centralizar o texto e o botão "Remover" */
+/* Adicione este CSS para centralizar o texto e o botão "Remover" */
+.cart-item-container {
+
 }
 
-h1 {
-  margin-top: 20px;
-  margin-bottom: 40px;
-  font-size: 36px;
+.cart-item-text {
+    flex-grow: 1; /* Expande o texto para preencher o espaço disponível */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    margin-right: 10px; /* Espaçamento entre o texto e o botão */
 }
 
-h2 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-  font-size: 24px;
+.remove-item-button {
+    background-color: #ff5555; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px; /* Tamanho do botão ajustado */
+    cursor: pointer;
+    font-size: 14px; /* Tamanho da fonte do botão */
 }
 
-button {
-  margin-top: 20px;
-  padding: 12px 24px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #29b673;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
-button:hover {
-  background-color: #1a7c4f;
-}
 
-img {
-  max-width: 100%;
-  height: auto;
-}
+    h1 {
+        margin-top: 20px;
+        margin-bottom: 40px;
+        font-size: 36px;
+    }
 
-/* Estilo da página */
+    h2 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 24px;
+    }
 
-header {
-  background-color: #222;
-  color: #fff;
-  padding: 20px;
-}
+    button {
+        margin-top: 20px;
+        padding: 12px 24px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #29b673;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-}
+    button:hover {
+        background-color: #1a7c4f;
+    }
 
-section {
-  margin: 20px;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
-  width: 300px;
-  text-align: center;
-}
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 
-input[type="text"] {
+    /* Estilo da página */
 
-  padding: 12px 24px;
-}
-/*quebra linha do valor */
-.valor {
-  font-size: 1.4em;
-  display: block;
-  margin-top: 5px;
-}
+    header {
+        background-color: #222;
+        color: #fff;
+        padding: 20px;
+    }
 
-/* Animações */
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+    }
 
-.animated {
-  animation-duration: 1s;
-  animation-fill-mode: both;
-}
+    section {
+        margin: 20px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+        width: 300px;
+        text-align: center;
+    }
 
-.fadeIn {
-  animation-name: fadeIn;
-}
+    input[type="text"] {
+        padding: 12px 24px;
+    }
 
-.fadeInDown {
-  animation-name: fadeInDown;
-}
+    /*quebra linha do valor */
+    .valor {
+        font-size: 1.4em;
+        display: block;
+        margin-top: 5px;
+    }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
+    /* Animações */
 
-  to {
-    opacity: 1;
-  }
-}
+    .animated {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
 
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0);
-  }
+    .fadeIn {
+        animation-name: fadeIn;
+    }
 
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
+    .fadeInDown {
+        animation-name: fadeInDown;
+    }
 
-.pulse {
-  animation: pulse 1s infinite;
-}
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translate3d(0, -100%, 0);
+        }
+
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    .pulse {
+        animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
 
   </style>
-  <body>
+<body>
     <header>
-      <h1 class="animated fadeInDown">Donates Disponíveis</h1>
-      <form>
-        <input type="text" id="searchInput" placeholder="Digite o nome do donate...">
-        <button type="button" id="searchButton">Buscar</button>
-      </form>
+        <h1 class="animated fadeInDown">Donates Disponíveis</h1>
+        <form>
+            <input type="text" id="searchInput" placeholder="Digite o nome do donate...">
+            <button type="button" id="searchButton">Buscar</button>
+        </form>
     </header>
 
     <main>
-      
-      
-  <section class="animated fadeIn" id="">
-    <img src="https://i.imgur.com/IRl4dgC.png" alt="mount">
-     </a>
-    <h2>Mount 1</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/db1otP5.png" alt="mount">
-    <h2>Mount 2</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/XXJ7BeF.png" alt="mount">
-    <h2>Mount 3</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/GnmRJWe.png" alt="mount">
-    <h2>Mount 4</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/vGREFAP.png" alt="mount">
-    <h2>Mount 5</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/03Gma3l.png" alt="mount">
-    <h2>Mount 6</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/1SkRPcm.png" alt="mount">
-    <h2>Mount 7</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/ONZC7lu.png" alt="mount">
-    <h2>Mount 8</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/eW47YkB.png" alt="mount">
-    <h2>Mount 9</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/INxYpXB.png" alt="mount">
-    <h2>Mount 10</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/0OS4Els.png" alt="mount">
-    <h2>Mount 11</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/WYrsQIS.png" alt="mount">
-    <h2>Mount 12</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/KPva2An.png" alt="mount">
-    <h2>Mount 13</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/iWzW796.png" alt="mount">
-    <h2>Mount 14</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/qTf1fJd.png" alt="mount">
-    <h2>Mount 15</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/nUpLppZ.png" alt="mount">
-    <h2>Mount 16</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/RBWdpNZ.png" alt="mount">
-    <h2>Mount 17</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/M4wSIyr.png" alt="mount">
-    <h2>Mount 18</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/DhdsPIS.png" alt="mount">
-    <h2>Mount 19</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/vE1Q5Jx.png" alt="mount">
-    <h2>Mount 20</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  <section class="animated fadeIn">
-    <img src="https://i.imgur.com/NdQ7dDc.png">
-    <h2>Mount 21</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/hOtpjEV.png">
-    <h2>Mount 22</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/Po9ivJa.png">
-    <h2>Mount 23</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/aFxCJJl.png">
-    <h2>Mount 24</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-    </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/JHo4tva.png">
-    <h2>Mount 25</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-    </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/wlfNI9w.png">
-    <h2>Mount 26</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-    </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/dxeiLpe.png">
-    <h2>Mount 27</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/E2LU9uZ.png">
-    <h2>Mount 28</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/pNa8mnB.png">
-    <h2>Mount 29</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/HEHD2uE.png">
-    <h2>Mount 30</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/QyKukzE.png">
-    <h2>Mount 31</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/GtVZscn.png">
-    <h2>Mount 32</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/JPt180w.png">
-    <h2>Mount 33</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/dg57A7C.png">
-    <h2>Mount 34</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/BUH5l19.png">
-    <h2>Mount 35</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/G2JOhvf.png">
-    <h2>Mount 36</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/PXh82C5.png">
-    <h2>Mount 37</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/v69ECmc.png">
-    <h2>Mount 38</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-  </section>
-    <section class="animated fadeIn">
-    <img src="https://i.imgur.com/BfPZgJP.png">
-    <h2>Mount 39</h2>
-    <span class="valor">R$ 50,00</span>
-    <button class="pulse">Comprar</button>
-  </section>
-</main>
+        <!-- Seu código HTML para listagem de itens aqui -->
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/6DMPGse.png" alt="mount">
+            <h2>Fire Phoenix Pet</h2>
+            <span class="valor">300 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
 
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/V19ImPR.png" alt="mount">
+            <h2>Blue Phoenix Pet</h2>
+            <span class="valor">300 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/SsE2T4Q.png" alt="mount">
+            <h2>Baby Dragon Pet</h2>
+            <span class="valor">300 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/bhWIkdu.png" alt="mount">
+            <h2>Chimera Pet</h2>
+            <span class="valor">300 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/4FNhSHx.png" alt="mount">
+            <h2>Babybee Pet</h2>
+            <span class="valor">300 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/0QWWpBR.png" alt="mount">
+            <h2>Pumpkin Pet</h2>
+            <span class="valor">300 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/zebDkOT.png" alt="mount">
+            <h2>Amblight Deer</h2>
+            <span class="valor">300 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/divHSGZ.png" alt="mount">
+            <h2>Dinobot Mecha</h2>
+            <span class="valor">300 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/VOgSPlN.png" alt="mount">
+            <h2>Ice Lion King </h2>
+            <span class="valor">300 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/TvnnHZF.png" alt="mount">
+            <h2>Shipper Panda </h2>
+            <span class="valor">300 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/HIRuoep.png" alt="mount">
+            <h2>Golden Pig </h2>
+            <span class="valor">300 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/aH3OveZ.png" alt="mount">
+            <h2>Coldarra Monster </h2>
+            <span class="valor">300 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/HZWhVd9.png" alt="mount">
+            <h2>Golden Spotted </h2>
+            <span class="valor">300 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/FOOtx9L.png" alt="mount">
+            <h2>Bullish </h2>
+            <span class="valor">300 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/Z0VB5zM.png" alt="mount">
+            <h2>Gorilla (Mount) </h2>
+            <span class="valor">600 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/n9mg6HA.png" alt="mount">
+            <h2>Fantasy Pegasus </h2>
+            <span class="valor">600 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/WMjH4f6.png" alt="mount">
+            <h2>Elite Dragon </h2>
+            <span class="valor">600 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/WFzuFTR.png" alt="mount">
+            <h2>Magic Wolf </h2>
+            <span class="valor">600 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/IXZSAx8.png" alt="mount">
+            <h2>Anciet White Tiger </h2>
+            <span class="valor">600 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/asNireZ.png" alt="mount">
+            <h2>Divine Beast </h2>
+            <span class="valor">600 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/OH3qR79.png" alt="mount">
+            <h2>Lion Bone Beast </h2>
+            <span class="valor">600 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/OEiQxS1.png" alt="mount">
+            <h2>Dazzling Deer </h2>
+            <span class="valor">600 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/tIRf4Wh.png" alt="mount">
+            <h2>Queen Of The Sea </h2>
+            <span class="valor">600 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/TOpbilQ.png" alt="mount">
+            <h2>Snow Beast </h2>
+            <span class="valor">600 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/dhu4gxX.png" alt="mount">
+            <h2>Golden Phoenix</h2>
+            <span class="valor">1500 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/kcIJLBb.png" alt="mount">
+            <h2>Blue Wing Bat King</h2>
+            <span class="valor">1500 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+        <section class="animated fadeIn" id="">
+            <img src="https://i.imgur.com/FsvS92d.png" alt="mount">
+            <h2>Vast Sky China Sword</h2>
+            <span class="valor">1500 Hunters Points</span>
+            <button class="pulse">Comprar</button>
+        </section>
+
+
+        
+
+
+        
+    </main>
+
+    <!-- Carrinho de compras (faixa na parte inferior) -->
+      <div id="cart-button" onclick="toggleCart()">
+          <i id="cart-icon" class="fas fa-shopping-cart"></i>Carrinho: <span id="cart-item-count">0</span> itens
+      </div>
+    <div id="cart-overlay">
+        <h2>Carrinho de Compras</h2>
+        <ul id="cartItems"></ul>
+        <button id="checkoutButton">Finalizar Compra</button>
+    </div>
 
     <script>
-      
-    const searchInput = document.getElementById("searchInput");
-    const searchButton = document.getElementById("searchButton");
-    const sections = document.querySelectorAll("section");
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
+const sections = document.querySelectorAll("section");
+const cartOverlay = document.getElementById("cart-overlay");
+const checkoutButton = document.getElementById("checkoutButton");
+const cartButton = document.getElementById("cart-button");
+const cartItemsList = document.getElementById("cartItems");
 
-    searchInput.addEventListener("input", () => {
-      const searchValue = searchInput.value.toLowerCase();
+const cartItems = [];
 
-      sections.forEach(section => {
+searchInput.addEventListener("input", () => {
+    const searchValue = searchInput.value.toLowerCase();
+
+    sections.forEach(section => {
         const sectionName = section.querySelector("h2").textContent.toLowerCase();
 
         if (sectionName.includes(searchValue)) {
-          section.style.display = "block";
+            section.style.display = "block";
         } else {
-          section.style.display = "none";
+            section.style.display = "none";
         }
-      });
     });
-    searchInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    event.preventDefault();
-  }
 });
+
+checkoutButton.addEventListener("click", () => {
+    // Gere a mensagem do WhatsApp com os itens no carrinho
+    const message = cartItems.map(item => `${item.name} - ${item.price}`).join('%0A');
+    const whatsappURL = `https://api.whatsapp.com/send?phone=55%20(67)%209849-5909&text=Pedido%20do%20carrinho:%0A${message}`;
+
+    // Abra o WhatsApp com a mensagem
+    window.open(whatsappURL, '_blank');
+});
+
+function updateCartButton() {
+    const cartItemCount = document.getElementById("cart-item-count");
+    cartItemCount.textContent = cartItems.length;
+}
+
+// Adicione a função para remover um item do carrinho
+function removeItemFromCart(index) {
+    cartItems.splice(index, 1); // Remove o item do array
+    updateCartButton(); // Atualize a faixa do carrinho
+    updateCartItems(); // Atualize a lista de itens no carrinho
+}
+
+// Atualize a função que cria a lista de itens no carrinho
+// ...
+
+function updateCartItems() {
+    const cartItemsList = document.getElementById("cartItems");
+    cartItemsList.innerHTML = ""; // Limpe a lista antes de adicionar os itens
+
+    cartItems.forEach(item => {
+        // Crie um elemento <li> para cada item do carrinho
+        const listItem = document.createElement("li");
+        listItem.classList.add("cart-item-container"); // Adicione a classe "cart-item-container"
+
+        // Texto do item
+        const itemText = document.createElement("span");
+        itemText.classList.add("cart-item-text"); // Adicione a classe "cart-item-text"
+        itemText.textContent = `${item.name} - ${item.price}`;
+        
+        // Adicione um botão "Remover" a cada item da lista
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remover";
+        removeButton.classList.add("remove-item-button"); // Adicione a classe "remove-item-button"
+        removeButton.addEventListener("click", () => removeItemFromCart(cartItems.indexOf(item)));
+        
+        // Adicione o texto do item e o botão ao item do carrinho
+        listItem.appendChild(itemText);
+        listItem.appendChild(removeButton);
+
+        // Adicione o item à lista
+        cartItemsList.appendChild(listItem);
+    });
+}
+
+
+
+function toggleCart() {
+    if (cartOverlay.style.display === "block") {
+        cartOverlay.style.display = "none";
+    } else {
+        cartOverlay.style.display = "block";
+    }
+}
 
 const buyButtons = document.querySelectorAll('button');
 
 buyButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const itemName = button.parentElement.querySelector('h2').textContent.trim();
-    const url = `https://api.whatsapp.com/send?phone=55%20(67)%209849-5909&text=%20%20Gostaria%20de%20comprar%20esse%20donate:%20${itemName}`;
-    window.open(url, '_blank');
-  });
+    button.addEventListener('click', () => {
+        const itemName = button.parentElement.querySelector('h2').textContent.trim();
+        const itemPrice = button.parentElement.querySelector('.valor').textContent.trim();
+
+        // Adicione o item ao carrinho
+        cartItems.push({ name: itemName, price: itemPrice });
+
+        // Atualize a faixa do carrinho
+        updateCartButton();
+
+        // Atualize a lista de itens no carrinho
+        updateCartItems();
+    });
 });
+
+function toggleCart() {
+    if (cartOverlay.style.display === "block") {
+        cartOverlay.style.display = "none";
+    } else {
+        cartOverlay.style.display = "block";
+        cartOverlay.style.bottom = "40px"; // Ajuste a distância entre a faixa verde e o carrinho
+    }
+}
 
 
     </script>
-  </body>
+</body>
 </html>
